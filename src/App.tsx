@@ -1,12 +1,13 @@
+import { Outlet } from "react-router"
+import { Button } from "./components/ui/button"
 
 function App() {
 
 
   return (
    <>
-   <div>
-    <h1 className="text-5xl text-red-400">hellow takapay</h1>
-   </div>
+  <h1>This is app componet</h1>
+  <Outlet />
    </>
   )
 }
