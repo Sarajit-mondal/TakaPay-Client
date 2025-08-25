@@ -8,9 +8,9 @@ interface IProps {
 
 function CommonLayout({children}:IProps) {
   return (
-    <div className=" min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="grow-1">{children}</div>
+      <div className="flex-grow">{children}</div>
      <Footer />
     </div>
   );
