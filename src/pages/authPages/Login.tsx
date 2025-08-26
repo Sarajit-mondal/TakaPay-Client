@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router";
 
 type LoginFormInputs = {
   mobile: string;
@@ -37,28 +38,41 @@ export default function Login() {
               className="w-full mt-1 px-4 py-2 border rounded-xl focus:outline-none focus:ring focus:ring-blue-300"
             />
             {errors.mobile && (
-              <p className="text-red-500 text-sm mt-1">{errors.mobile.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.mobile.message}
+              </p>
             )}
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium">Password *</label>
+            <label className="block text-sm font-medium">
+              Password
+            </label>
             <input
               type="password"
-              maxLength={5}
+              maxLength={5} // prevents typing more than 5
               {...register("password", {
                 required: "Password is required",
-                maxLength: { value: 5, message: "Password must be 5 digits" },
+                minLength: {
+                  value: 5,
+                  message: "Password must be exactly 5 digits",
+                },
+                maxLength: {
+                  value: 5,
+                  message: "Password must be exactly 5 digits",
+                },
                 pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Password must contain only numbers",
+                  value: /^[0-9]{5}$/, // only 5 digits allowed
+                  message: "Password must be exactly 5 digits (numbers only)",
                 },
               })}
               className="w-full mt-1 px-4 py-2 border rounded-xl focus:outline-none focus:ring focus:ring-blue-300"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </p>
             )}
           </div>
 
@@ -70,6 +84,15 @@ export default function Login() {
             Login
           </button>
         </form>
+        {/* Login Link - Right Side */}
+      <div className="flex justify-end mt-4">
+        <NavLink
+          to="/register"
+          className="text-blue-600 hover:underline text-sm font-medium"
+        >
+          Your don't have than? Register
+        </NavLink>
+      </div>
       </div>
     </div>
   );

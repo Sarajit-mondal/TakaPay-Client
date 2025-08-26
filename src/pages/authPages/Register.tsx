@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router";
 
 type RegisterFormInputs = {
   name: string;
@@ -39,7 +40,9 @@ export default function Register() {
 
           {/* Surname */}
           <div>
-            <label className="block text-sm font-medium">Surname (optional)</label>
+            <label className="block text-sm font-medium">
+              Surname 
+            </label>
             <input
               type="text"
               {...register("surname")}
@@ -62,31 +65,44 @@ export default function Register() {
               className="w-full mt-1 px-4 py-2 border rounded-xl focus:outline-none focus:ring focus:ring-blue-300"
             />
             {errors.mobile && (
-              <p className="text-red-500 text-sm mt-1">{errors.mobile.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.mobile.message}
+              </p>
             )}
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium">Password (max 5 digits) *</label>
+            <label className="block text-sm font-medium">
+              Password (must be exactly 5 digits) *
+            </label>
             <input
               type="password"
-              maxLength={5}
+              maxLength={5} // prevents typing more than 5
               {...register("password", {
                 required: "Password is required",
-                maxLength: { value: 5, message: "Password must be 5 digits" },
+                minLength: {
+                  value: 5,
+                  message: "Password must be exactly 5 digits",
+                },
+                maxLength: {
+                  value: 5,
+                  message: "Password must be exactly 5 digits",
+                },
                 pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Password must contain only numbers",
+                  value: /^[0-9]{5}$/, // only 5 digits allowed
+                  message: "Password must be exactly 5 digits (numbers only)",
                 },
               })}
               className="w-full mt-1 px-4 py-2 border rounded-xl focus:outline-none focus:ring focus:ring-blue-300"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </p>
             )}
           </div>
-
+    
           {/* Submit */}
           <button
             type="submit"
@@ -95,6 +111,15 @@ export default function Register() {
             Register
           </button>
         </form>
+        {/* Login Link - Right Side */}
+      <div className="flex justify-end mt-4">
+        <NavLink
+          to="/login"
+          className="text-blue-600 hover:underline text-sm font-medium"
+        >
+          Already have an account? Login
+        </NavLink>
+      </div>
       </div>
     </div>
   );
