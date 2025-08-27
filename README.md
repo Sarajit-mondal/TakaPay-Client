@@ -1,6 +1,7 @@
 
 # 💳 Digital Wallet Frontend (bKash/Nagad Clone) 
 # Name : TakaPay
+Live Link : https://taka-pay-client.vercel.app
 
 A **secure, role-based, and user-friendly frontend application** for a Digital Wallet System (similar to bKash or Nagad) built using **React.js, Redux Toolkit, RTK Query, and TypeScript**.  
 This project consumes a backend API (provided separately or mocked) to enable **Users, Agents, and Admins** to perform financial operations and manage wallets seamlessly.
