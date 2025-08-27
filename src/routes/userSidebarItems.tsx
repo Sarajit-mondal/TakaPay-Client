@@ -1,5 +1,5 @@
 
-import PaymentHistory from "@/components/userComponet/paymentHistory";
+import PaymentHistory from "@/components/userComponet/PaymentHistory";
 import type { ISidebarItem } from "@/types";
 
 
