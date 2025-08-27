@@ -62,12 +62,11 @@ type Role = "user" | "agent" | "admin";
 
 export function AppSidebar({
   role = "user", // default role
-  ...props
 }: { role?: Role } & React.ComponentProps<typeof Sidebar>) {
   const data = navData[role];
 
   return (
-    <Sidebar {...props}>
+    <Sidebar>
       <SidebarHeader className="items-center">
         <Link to="/">
           <Logo />

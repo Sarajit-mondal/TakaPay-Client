@@ -1,7 +1,7 @@
 import { Separator } from "@radix-ui/react-separator"
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar"
 import { Outlet } from "react-router"
 import { AppSidebar } from "./AppSidebar"
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "../ui/sidebar"
 
 
 function DashbordLayout() {

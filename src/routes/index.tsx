@@ -1,4 +1,5 @@
 import App from "@/App";
+import DashbordLayout from "@/components/layout/DashbordLayout";
 import About from "@/pages/About";
 import Login from "@/pages/authPages/Login";
 import Register from "@/pages/authPages/Register";
@@ -7,6 +8,7 @@ import FAQ from "@/pages/FAQ";
 import Features from "@/pages/Features";
 import Home from "@/pages/Home";
 import Pricing from "@/pages/Pricing";
+import path from "path";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
@@ -47,5 +49,18 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
        ]
+    },
+    {
+        
+      Component : DashbordLayout,
+    
+      children:[
+        {
+          path: "user/paymentHistory",
+  
+
+        }
+      ]
     }
+    
 ])

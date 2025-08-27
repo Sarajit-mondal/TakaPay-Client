@@ -1,11 +1,11 @@
-import React from 'react'
 
-function paymentHistory() {
+
+function PaymentHistory() {
   return (
     <div>
-      This is All payment history complent
+      
     </div>
   )
 }
 
-export default paymentHistory
+export default PaymentHistory
