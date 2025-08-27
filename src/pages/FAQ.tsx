@@ -14,6 +14,10 @@ const faqs = [
     q: "Do you offer refunds?",
     a: "Yes, we offer a 14-day money-back guarantee for all subscription plans.",
   },
+  {
+    q: "Do you offer refunds?",
+    a: "Yes, we offer a 14-day money-back guarantee for all subscription plans.",
+  },
 ];
 
 export default function FAQ() {
