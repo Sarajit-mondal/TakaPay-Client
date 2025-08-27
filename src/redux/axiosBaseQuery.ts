@@ -1,13 +1,13 @@
 import { axiosInstance } from "@/lib/axios";
 import type { BaseQueryFn } from "@reduxjs/toolkit/query";
-import type{ AxiosError, AxiosRequestConfig } from "axios";
+
 
 type AxiosBaseQueryArgs = {
   url: string;
-  method?: AxiosRequestConfig["method"];
-  data?: AxiosRequestConfig["data"];
-  params?: AxiosRequestConfig["params"];
-  headers?: AxiosRequestConfig["headers"];
+  method?: string;
+  data?: any;
+  params?: any;
+  headers?: any;
 };
 
 // Define shape of error for RTK Query
@@ -28,12 +28,11 @@ const axiosBaseQuery =
         headers,
       });
       return { data: result.data };
-    } catch (axiosError) {
-      const err = axiosError as AxiosError;
+    } catch (axiosError: any) {
       return {
         error: {
-          status: err.response?.status,
-          data: err.response?.data ?? err.message,
+          status: axiosError.response?.status,
+          data: axiosError.response?.data ?? axiosError.message,
         },
       };
     }

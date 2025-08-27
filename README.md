@@ -1,69 +1,134 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 💳 Digital Wallet Frontend (bKash/Nagad Clone) 
+# Name : TakaPay
 
-Currently, two official plugins are available:
+A **secure, role-based, and user-friendly frontend application** for a Digital Wallet System (similar to bKash or Nagad) built using **React.js, Redux Toolkit, RTK Query, and TypeScript**.  
+This project consumes a backend API (provided separately or mocked) to enable **Users, Agents, and Admins** to perform financial operations and manage wallets seamlessly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Frontend:**
+- React, React Router
+- Redux Toolkit & RTK Query
+- TypeScript
+- Tailwind CSS
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Backend (for API integration):**
+- Node.js / Express
+- MongoDB / Mongoose
+- JWT + bcrypt
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📌 Minimum Functional Requirements
+
+### 1️⃣ Public Landing Section
+Accessible without login, including:
+- **Home Page** — Polished landing page with theme-colored navigation bar (sticky), hero banner with tagline & call-to-action, responsive design, footer, skeleton loading, and smooth transitions.
+- **About Page** — Service story, mission, and team details.
+- **Features Page** — List of features with visuals/icons.
+- **Pricing Page (optional)** — Service fees & subscription tiers.
+- **Contact Page** — Inquiry form (simulated submission).
+- **FAQ Page** — Common questions & answers.
+
+### 2️⃣ Authentication
+- Registration with role selection (User / Agent).
+- Login form with JWT authentication.
+- Persisted authentication state (remains logged in after refresh).
+- Role-based redirection after login.
+- Logout functionality.
+
+### 3️⃣ User Dashboard
+- Wallet balance overview, quick actions & recent transactions.
+- Deposit (via agent simulation).
+- Withdraw money.
+- Send money to another user (search by phone/email).
+- Transaction history (pagination, filters by type/date).
+- Profile management (update name, phone, password).
+
+### 4️⃣ Agent Dashboard
+- Overview with cash-in/out summary & activity logs.
+- Add money to a user’s wallet.
+- Withdraw money from a user’s wallet.
+- View agent transactions & commission history (optional).
+- Profile management.
+
+### 5️⃣ Admin Dashboard
+- System overview (total users, agents, transactions, volume).
+- Manage users (view, block/unblock).
+- Manage agents (approve, suspend).
+- View all transactions (advanced filters, pagination).
+- Adjust system fees/limits (optional).
+- Profile management.
+
+### 6️⃣ General Features
+- Role-based navigation menu (User, Agent, Admin).
+- Global loading indicators & error handling.
+- Form validations (numeric, required, positive amounts).
+- Pagination for long lists.
+- Data visualization (cards, bar/pie charts, tables).
+- **Toast Notifications** for success/error feedback.
+- **Guided Tour** (react-joyride / driver.js / shepherd.js):
+  - 5+ steps explaining key features (nav, dashboard cards, charts, filters, theme toggle).
+  - Runs once for new users (localStorage).
+  - Restart option in Settings.
+
+---
+
+## 🎨 UI/UX Considerations
+- Fully responsive across devices.
+- Consistent margins & spacing.
+- Professional color themes & typography.
+- Dark/Light mode support.
+- Lazy-loading, skeleton loaders, accessibility standards.
+
+---
+
+## 🛠️ Installation & Setup
+
+### Prerequisites
+- Node.js >= 16.x
+- npm or yarn
+
+### Steps
+```bash
+# Clone repo
+git clone https://github.com/Sarajit-mondal/TakaPay-Client.git
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Backend API setup is required separately (Node.js/Express + MongoDB).  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure
 ```
+src/
+ ├── components/     # Reusable components (Navbar, Footer, etc.)
+ ├── features/       # Redux slices & RTK Query API logic
+ ├── layouts/        # Layouts (CommonLayout, DashboardLayout)
+ ├── pages/          # Pages (Home, About, Features, etc.)
+ ├── routes/         # React Router configs
+ ├── store/          # Redux store setup
+ └── utils/          # Helper functions
+```
+
+---
+
+
+
+## 🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.
+
+---
+
+## 📜 License
+Sarajit Mandal
+
